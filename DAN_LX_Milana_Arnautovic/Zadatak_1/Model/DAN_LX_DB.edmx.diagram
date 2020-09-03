@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="626bce8f0c454c3e850cfabbc1b51697" Name="Diagram1">
+        <EntityTypeShape EntityType="DAN_LXModel.tblEmployee" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAN_LXModel.tblLocation" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAN_LXModel.tblSector" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAN_LXModel.vwEmployee" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAN_LXModel.vwLocation" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAN_LXModel.vwSector" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="DAN_LXModel.FK__tblEmploy__Locat__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="DAN_LXModel.FK__tblEmploy__Manag__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="DAN_LXModel.FK__tblEmploy__Secto__4222D4EF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
