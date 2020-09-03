@@ -299,7 +299,7 @@ warning 6002: The table/view 'DAN_LX.dbo.vwSectors' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DAN_LXEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DAN_LXEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
           <EntitySet Name="tblLocations" EntityType="Self.tblLocation" />
           <EntitySet Name="tblSectors" EntityType="Self.tblSector" />
@@ -324,7 +324,7 @@ warning 6002: The table/view 'DAN_LX.dbo.vwSectors' does not have a primary key 
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DAN_LXModelStoreContainer" CdmEntityContainer="DAN_LXEntities">
+        <EntityContainerMapping StorageEntityContainer="DAN_LXModelStoreContainer" CdmEntityContainer="DAN_LXEntities1">
           <EntitySetMapping Name="tblEmployees">
             <EntityTypeMapping TypeName="DAN_LXModel.tblEmployee">
               <MappingFragment StoreEntitySet="tblEmployees">

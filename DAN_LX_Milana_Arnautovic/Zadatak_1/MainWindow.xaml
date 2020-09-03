@@ -6,7 +6,54 @@
         xmlns:local="clr-namespace:Zadatak_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="0,0,-6.4,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Add employee" Command="{Binding AddEmployee}"
+                HorizontalAlignment="Left" Margin="0.2,1,0,0.4" Width="95" Grid.RowSpan="2" Grid.Column="1"/>
+
+        <Grid Grid.Column="1" Grid.Row="3">
+            <DataGrid ItemsSource="{Binding EmployeeList,UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding Employee, UpdateSourceTrigger=PropertyChanged}"
+                IsReadOnly="True" HeadersVisibility="Column"  AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Employee ID" Binding="{Binding EmployeeID}"/>
+                    <DataGridTextColumn Header="NameandSurname" Binding="{Binding NameandSurname}"/>
+                    <DataGridTextColumn Header="DateOfBirth" Binding="{Binding DateOfBirth}"/>
+                    <DataGridTextColumn Header="RegistrationNumber" Binding="{Binding RegistrationNumber}"/>
+                    <DataGridTextColumn Header="Adress" Binding="{Binding Adress}"/>
+                    <DataGridTextColumn Header="JMBG" Binding="{Binding JMBG}"/>
+                    <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}"/>
+                    <DataGridTextColumn Header="Sector" Binding="{Binding SectorName}"/>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edit" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.EditEmployee}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="X" Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext.DeleteEmployee}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>
