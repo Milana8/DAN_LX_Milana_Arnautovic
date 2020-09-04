@@ -20,6 +20,8 @@ namespace Zadatak_1.ViewModel
         {
             this.main = main;
             EmployeeList = service.GetAllEmployees();
+            service.AddLocations();
+           
 
         }
 

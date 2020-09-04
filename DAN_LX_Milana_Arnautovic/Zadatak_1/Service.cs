@@ -11,6 +11,7 @@ namespace Zadatak_1
 {
     class Service
     {
+        
         public bool AddEmployee(vwEmployee employeeToAdd)
         {
             try
@@ -62,7 +63,11 @@ namespace Zadatak_1
                 return null;
             }
         }
-
+        /// <summary>
+        /// Method for changing employee data
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
         public bool EditEmployee(vwEmployee employee)
         {
             try
@@ -89,7 +94,11 @@ namespace Zadatak_1
                 return false;
             }
         }
-
+        /// <summary>
+        /// Method for deleting employee data
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <returns></returns>
         public bool DeleteEmployee(int employeeID)
         {
             try
@@ -128,7 +137,11 @@ namespace Zadatak_1
                 return false;
             }
         }
-
+        /// <summary>
+        /// List of all employees who are managers
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
         public List<vwEmployee> GetAllManagers(vwEmployee employee)
         {
             try
@@ -169,7 +182,7 @@ namespace Zadatak_1
         {
             try
             {
-                string[] lines = File.ReadAllLines(@"../../Adresa.txt");
+                string[] lines = File.ReadAllLines(@"../../Location.txt");
                 List<string> list = new List<string>();
                 for (int i = 0; i < lines.Length; i++)
                 {
@@ -215,6 +228,8 @@ namespace Zadatak_1
             }
         }
 
+
+
         public void AddSector(string sectorToAdd)
         {
             try
@@ -235,44 +250,21 @@ namespace Zadatak_1
             }
         }
 
-        public bool IsSectorExists(string sectorName)
+        public List<vwSector> GetAllSectors()
         {
             try
             {
                 using (DAN_LXEntities1 context = new DAN_LXEntities1())
                 {
-                    tblSector sector = context.tblSectors.Where(x => x.SectorName == sectorName).FirstOrDefault();
-                    if (sector != null)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    List<vwSector> sectors = new List<vwSector>();
+                    sectors = (from x in context.vwSectors select x).ToList();
+                    return sectors;
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Exception" + ex.Message.ToString());
-                return false;
-            }
-        }
-
-        public int FindSector(string sectorName)
-        {
-            try
-            {
-                using (DAN_LXEntities1 context = new DAN_LXEntities1())
-                {
-                    return context.vwSectors.Where(x => x.SectorName == sectorName).Select(x => x.SectorID).FirstOrDefault();
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Exception" + ex.Message.ToString());
-                return 0;
+                return null;
             }
         }
     }

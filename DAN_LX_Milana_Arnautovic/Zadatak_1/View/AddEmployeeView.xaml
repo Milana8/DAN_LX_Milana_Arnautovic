@@ -4,9 +4,140 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadatak_1.View"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="AddEmployeeView" Height="450" Width="800">
+    <Window.Resources>
+        <x:Array Type="sys:String" x:Key="Gender">
+            <sys:String>M</sys:String>
+            <sys:String>F</sys:String>
+            <sys:String>O</sys:String>
+            <sys:String>X</sys:String>
+        </x:Array>
+
+    </Window.Resources>
     <Grid>
-        
+       
+        <Label Content="NameandSurname:"
+               Name="lblNameandSurname"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="50,10,0,0"
+               Width="123" />
+        <Label Content="RegistrationNumber:"
+               Name="lblRegistrationNumber"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="50,41,0,0"
+               Width="123" />
+        <Label Content="JMBG:"
+               Name="lblJMBG"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="50,72,0,0"
+               Width="88" />
+        <Label Content="Adress:"
+               Name="lblAdress"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="50,103,0,0"
+               Width="88" />
+        <Label Content="Gender:"
+               Name="lblGender"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="50,134,0,0"
+               Width="88" />
+        <Label Content="PhoneNumber:"
+               Name="PhoneNumber"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="50,165,0,0"
+               Width="139" />
+        <Label Content="Sector:"
+               Name="lblSector"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="50,196,0,0"
+               Width="123" />
+        <Label Content="Manager:"
+               Name="lblManager"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="50,232,0,0"
+               Width="102" />
+
+
+
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="205,13,0,0" 
+                Text="{Binding Employee.NameandSurname, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="205,43,0,0" 
+                Text="{Binding Employee.RegistrationNumber, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="205,75,0,0" 
+                Text="{Binding Employee.JMBG, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox HorizontalAlignment="Left"
+                 Height="23"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="205,106,0,0" 
+                  DisplayMemberPath="Location"
+                  ItemsSource="{Binding LocationList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Location, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox HorizontalAlignment="Left"
+                 Height="23"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="205,134,0,0" 
+                ItemsSource="{StaticResource ResourceKey=Gender}"
+                 SelectedItem="{Binding Employee.Gender, UpdateSourceTrigger=PropertyChanged}">
+            </ComboBox>
+
+            <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="205,168,0,0" 
+                Text="{Binding Employee.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="205,198,0,0" 
+                Text="{Binding Employee.Sector, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 Margin="205,235,0,0" 
+                Text="{Binding Employee.Manager, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Button Content="Save"
+                Command="{Binding Save,UpdateSourceTrigger=PropertyChanged}"  Margin="80,349,620.6,43" Background="#545d6a" Foreground="White" FontSize="12" IsDefault="True" />
+        <Button
+                 Name="btnClose" Content="Close"  
+                Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"  Margin="293,349,407.6,43" Background="#545d6a" Foreground="White" FontSize="12" IsDefault="True"  />
+
     </Grid>
 </Window>
+    
+

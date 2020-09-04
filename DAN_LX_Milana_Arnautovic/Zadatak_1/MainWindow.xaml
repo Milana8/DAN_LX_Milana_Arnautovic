@@ -36,7 +36,7 @@
                     <DataGridTextColumn Header="JMBG" Binding="{Binding JMBG}"/>
                     <DataGridTextColumn Header="Gender" Binding="{Binding Gender}"/>
                     <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}"/>
-                    <DataGridTextColumn Header="Sector" Binding="{Binding SectorName}"/>
+                    <DataGridTextColumn Header="Sector" Binding="{Binding Sector}"/>
 
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
